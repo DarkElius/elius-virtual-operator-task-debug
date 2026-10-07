@@ -200,10 +200,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   
-
-   THIRD-PARTY LIBRARIES
-   This product bundles or uses components from the following third-party projects:
-
-   - Apache Log4j 2 for Java (Apache License 2.0)
-   https://github.com/apache/logging-log4j2
