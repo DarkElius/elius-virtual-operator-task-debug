@@ -1,21 +1,23 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>EliusVirtualOperator</groupId>
-  <artifactId>TaskDebug</artifactId>
-  <version>0.0.2</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>EliusVirtualOperator</groupId>
+	<artifactId>TaskDebug</artifactId>
+	<version>0.0.2</version>
 
-  <build>
+	<build>
 
-    <plugins>
+		<plugins>
 
-      <!-- Compiler -->
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>21</release>       
-        </configuration>
-      </plugin>
+			<!-- Compiler -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>21</release>
+				</configuration>
+			</plugin>
 
 			<!-- NOTICE -->
 			<plugin>
@@ -26,28 +28,29 @@
 				<configuration>
 					<thirdPartyFilename>NOTICE</thirdPartyFilename>
 					<excludedScopes>test,provided</excludedScopes>
-					<fileTemplate>${project.basedir}/src/main/resources/license/third-party-template.ftl</fileTemplate>
-					<outputDirectory>${project.basedir}</outputDirectory>		
+					<fileTemplate>
+						${project.basedir}/src/main/resources/license/third-party-template.ftl</fileTemplate>
+					<outputDirectory>${project.basedir}</outputDirectory>
 				</configuration>
 
 				<executions>
 					<execution>
-					<id>generate-notice</id>
-					<goals>
-						<goal>add-third-party</goal>
-					</goals>
+						<id>generate-notice</id>
+						<goals>
+							<goal>add-third-party</goal>
+						</goals>
 					</execution>
-				</executions>				
+				</executions>
 			</plugin>
 
-    </plugins>
-  </build>
+		</plugins>
+	</build>
 
-  <properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<ewaf.version>0.0.2</ewaf.version>
-    <evot.version>0.0.2</evot.version>
+		<evot.version>0.0.2</evot.version>
 	</properties>
 
 	<dependencies>
@@ -57,7 +60,7 @@
 			<groupId>EliusWebAppFramework</groupId>
 			<artifactId>EliusWebAppFramework</artifactId>
 			<version>${ewaf.version}</version>
-      <scope>provided</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- Elius Virtual Operator Task -->
@@ -65,9 +68,9 @@
 			<groupId>EliusVirtualOperator</groupId>
 			<artifactId>Task</artifactId>
 			<version>${evot.version}</version>
-      <scope>provided</scope>
-		</dependency>    
+			<scope>provided</scope>
+		</dependency>
 
-  </dependencies>  
+	</dependencies>
 
 </project>
