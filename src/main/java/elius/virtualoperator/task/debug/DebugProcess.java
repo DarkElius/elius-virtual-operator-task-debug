@@ -28,8 +28,8 @@ public class DebugProcess implements TaskProcess {
 	// Get logger
 	private static Logger logger = LogManager.getLogger(DebugProcess.class);
 	
-	// Random exit status
-	int exitStatus;
+	// Task Status
+	private TaskStatus tStatus;
 
 	@Override
     public String getName() {
@@ -50,13 +50,14 @@ public class DebugProcess implements TaskProcess {
 
 	@Override
 	public void execute(Task task) {
+
+		logger.traceEntry("task={}", task);
 		
 		// Random number generator
 		Random rand = new Random();
 		
 		// Generate a status from ENDED, WARNING, ERROR
-		exitStatus =  5 + rand.nextInt(3);
-		
+		tStatus =  TaskStatus.getById(5 + rand.nextInt(3));
 		
 		try { 
 			// Do nothing
@@ -69,10 +70,7 @@ public class DebugProcess implements TaskProcess {
 			logger.error(e.getMessage());
 		}
 		
-		
-		
-		// Log process start
-		logger.info("End processing task(" + task.getUuid() + ") status(" + TaskStatus.getById(exitStatus).getName() + ")");		
+		logger.traceExit("status={}", tStatus);
 	}
 
 	@Override
@@ -82,7 +80,7 @@ public class DebugProcess implements TaskProcess {
 
 	@Override
 	public TaskStatus getTaskStatusResult() {		
-		return TaskStatus.getById(exitStatus);
+		return tStatus;
 	}
 
 }
