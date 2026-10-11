@@ -23,6 +23,12 @@ import elius.virtualoperator.task.Task;
 import elius.virtualoperator.task.TaskProcess;
 import elius.virtualoperator.task.TaskStatus;
 
+/**
+ * Elius Virtual Operator - Debug Process Task.
+ * <p>
+ * Genera un risultato casuale dopo un tempo di attesa configurato.
+ * Viene utilizzata per simulare l'esecuzione di un processo durante le fasi di test.
+ */
 public class DebugProcess implements TaskProcess {
 	
 	// Get logger
@@ -64,9 +70,7 @@ public class DebugProcess implements TaskProcess {
 		    Thread.sleep(rand.nextInt(4000));
 		    
 		} catch (InterruptedException e) {
-			// Log error
 			logger.error("Error processing task");
-			// Log message
 			logger.error(e.getMessage());
 		}
 		
