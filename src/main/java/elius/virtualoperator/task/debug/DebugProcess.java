@@ -40,6 +40,12 @@ public class DebugProcess implements TaskProcess {
 	// Random number generator
 	private final Random rand = new Random();
 
+	/**
+	 * Default constructor
+	 */
+	public DebugProcess() {
+        /* Nothing to initialize */
+	}
 
 	@Override
     public String getName() {
