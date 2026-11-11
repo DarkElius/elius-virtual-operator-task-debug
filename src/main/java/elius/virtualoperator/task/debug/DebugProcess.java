@@ -37,6 +37,10 @@ public class DebugProcess implements TaskProcess {
 	// Task Status
 	private TaskStatus tStatus;
 
+	// Random number generator
+	private final Random rand = new Random();
+
+
 	@Override
     public String getName() {
         return "EVO_DEBUG";
@@ -58,10 +62,7 @@ public class DebugProcess implements TaskProcess {
 	public void execute(Task task) {
 
 		logger.traceEntry("task={}", task);
-		
-		// Random number generator
-		Random rand = new Random();
-		
+				
 		// Generate a status from ENDED, WARNING, ERROR
 		tStatus =  TaskStatus.getById(5 + rand.nextInt(3));
 		
@@ -70,8 +71,9 @@ public class DebugProcess implements TaskProcess {
 		    Thread.sleep(rand.nextInt(4000));
 		    
 		} catch (InterruptedException e) {
-			logger.error("Error processing task");
-			logger.error(e.getMessage());
+			logger.error("Error processing task", e);
+			// Cleanup before interrupting
+			Thread.currentThread().interrupt();
 		}
 		
 		logger.traceExit("status={}", tStatus);
